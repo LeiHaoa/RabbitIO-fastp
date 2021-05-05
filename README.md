@@ -10,13 +10,13 @@ we only provide the linux version of RabbitIO-fastp
 cd RabbitIO-fastp && make
 ```
 # Simple usage
-* For single end data (not compressed)
+* For single end data 
 ```
 RabbitIO-fastp -w nthreads -i in.fq -o out.fq
 ```
-* For paired end data (gzip compressed)
+* For paired end data
 ```
-RabbitIO-fastp -w nthreads -i in.R1.fq.gz -I in.R2.fq.gz -o out.R1.fq.gz -O out.R2.fq.gz
+RabbitIO-fastp -w nthreads -i in.R1.fq -I in.R2.fq -o out.R1.fq -O out.R2.fq
 ```
 
 # Options
