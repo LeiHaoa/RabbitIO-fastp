@@ -278,8 +278,6 @@ public:
     void initIndexFiltering(string blacklistFile1, string blacklistFile2, int threshold = 0);
     vector<string> makeListFromFileByLine(string filename);
     bool shallDetectAdapter(bool isR2 = false);
-	//--- for TGS ---
-	bool isTGS();
 
 public:
     // file name of read1 input
@@ -351,10 +349,6 @@ public:
     int overlapDiffLimit;
     // output debug information
     bool verbose;
-
-	//-------------for 3gs option---------//
-	bool istgs;
-	int minLen;
 
 };
 

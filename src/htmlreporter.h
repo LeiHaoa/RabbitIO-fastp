@@ -36,7 +36,6 @@ SOFTWARE.
 #include <string>
 #include "options.h"
 #include "stats.h"
-#include "TGSStats.h"
 #include "filterresult.h"
 #include <fstream>
 
@@ -49,7 +48,6 @@ public:
     void setDupHist(int* dupHist, double* dupMeanGC, double dupRate);
     void setInsertHist(long* insertHist, int insertSizePeak);
     void report(FilterResult* result, Stats* preStats1, Stats* postStats1, Stats* preStats2 = NULL, Stats* postStats2 = NULL);
-    void report3(TGSStats* preStats1, TGSStats* postStats1 = NULL, TGSStats* preStats2 = NULL, TGSStats* postStats2 = NULL);
 
     static void outputRow(ofstream& ofs, string key, long value);
     static void outputRow(ofstream& ofs, string key, string value);

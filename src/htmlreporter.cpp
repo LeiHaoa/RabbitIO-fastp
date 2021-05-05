@@ -103,7 +103,7 @@ void HtmlReporter::printSummary(ofstream& ofs, FilterResult* result, Stats* preS
     }
 
     ofs << endl;
-    ofs << "<h1 style='text-align:left;'><a href='https://github.com/ZekunYin/RabbitQC' target='_blank' style='color:#663355;text-decoration:none;'>" + mOptions->reportTitle + "</a>"<<endl;
+    ofs << "<h1 style='text-align:left;'><a href='https://github.com/LeiHaoa/RabbitIO-fastp' target='_blank' style='color:#663355;text-decoration:none;'>" + mOptions->reportTitle + "</a>"<<endl;
     ofs << "<div class='section_div'>\n";
     ofs << "<div class='section_title' onclick=showOrHide('summary')><a name='summary'>Summary</a></div>\n";
     ofs << "<div id='summary'>\n";
@@ -111,7 +111,7 @@ void HtmlReporter::printSummary(ofstream& ofs, FilterResult* result, Stats* preS
     ofs << "<div class='subsection_title' onclick=showOrHide('general')>General</div>\n";
     ofs << "<div id='general'>\n";
     ofs << "<table class='summary_table'>\n";
-    outputRow(ofs, "RabbitQC version:", string(RABBITQC_VER)+ " (<a href='https://github.com/ZekunYin/RabbitQC'>https://github.com/ZekunYin/RabbitQC</a>)");
+    outputRow(ofs, "RabbitIO-fastp version:", string(RABBITQC_VER)+ " (<a href='https://github.com/LeiHaoa/RabbitIO-fastp'>https://github.com/LeiHaoa/RabbitIO-fastp</a>)");
     outputRow(ofs, "sequencing:", sequencingInfo);
 
     // report read length change
@@ -364,53 +364,10 @@ void HtmlReporter::report(FilterResult* result, Stats* preStats1, Stats* postSta
 
 }
 
-//Add by liumy, plot for long reads
-void HtmlReporter::report3(TGSStats* preStats1, TGSStats* postStats1, TGSStats* preStats2, TGSStats* postStats2) {
-    ofstream ofs;
-    ofs.open(mOptions->htmlFile, ifstream::out);
-
-    printHeader(ofs);
-
-    //printSummary(ofs, result, preStats1, postStats1, preStats2, postStats2);
-
-    ofs << "<div class='section_div'>\n";
-    ofs << "<div class='section_title' onclick=showOrHide('QC_information')><a name='summary'>QC information</a></div>\n";
-    ofs << "<div id='QC_information'>\n";
-
-    if(preStats1) {
-        preStats1 -> reportHtml(ofs, "QC information", "read1");
-    }
-
-    //if(preStats2) {
-    //    preStats2 -> reportHtml(ofs, "Before filtering", "read2");
-    //}
-
-    ofs << "</div>\n";
-    ofs << "</div>\n";
-
-    //ofs << "<div class='section_div'>\n";
-    //ofs << "<div class='section_title' onclick=showOrHide('after_filtering')><a name='summary'>After filtering</a></div>\n";
-    //ofs << "<div id='after_filtering'>\n";
-
-    //if(postStats1) {
-    //    postStats1 -> reportHtml(ofs, "After filtering", "read1");
-    //}
-
-    //if(postStats2) {
-    //    postStats2 -> reportHtml(ofs, "After filtering", "read2");
-    //}
-
-    //ofs << "</div>\n";
-    //ofs << "</div>\n";
-
-    printFooter(ofs);
-
-}
-
 void HtmlReporter::printHeader(ofstream& ofs){
     ofs << "<html><head><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\" />";
-    //ofs << "<title>RabbitQC report at " + getCurrentSystemTime() + " </title>";
-    ofs << "<title>RabbitQC report at " + getCurrentSystemTime() + " </title>";
+    //ofs << "<title>RabbitIO-fastp report at " + getCurrentSystemTime() + " </title>";
+    ofs << "<title>RabbitIO-fastp report at " + getCurrentSystemTime() + " </title>";
     printJS(ofs);
     printCSS(ofs);
     ofs << "</head>";
@@ -472,6 +429,6 @@ void HtmlReporter::printFooter(ofstream& ofs){
     ofs << "\n</div>" << endl;
     ofs << "<div id='footer'> ";
     ofs << "<p>"<<command<<"</p>";
-    ofs << "RabbitQC " << RABBITQC_VER << ", at " << getCurrentSystemTime() << " </div>";
+    ofs << "RabbitIO-fastp " << RABBITQC_VER << ", at " << getCurrentSystemTime() << " </div>";
     ofs << "</body></html>";
 }

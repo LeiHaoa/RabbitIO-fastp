@@ -9,7 +9,6 @@
 #include "writer.h"
 #include "options.h"
 #include "filterresult.h"
-#include "TGSStats.h"
 
 using namespace std;
 
@@ -21,8 +20,6 @@ public:
     inline Stats* getPostStats1() {return mPostStats1;}
     inline Stats* getPreStats2() {return mPreStats2;}
     inline Stats* getPostStats2() {return mPostStats2;}
-
-    inline TGSStats* getTGSStats() {return mTGSStats;}
 
     inline Writer* getWriter1() {return mWriter1;}
     inline Writer* getWriter2() {return mWriter2;}
@@ -64,8 +61,6 @@ private:
     int mWorkingSplit;
     long mCurrentSplitReads;
     bool mCanBeStopped;
-	//---for tgs---//
-	TGSStats* mTGSStats;
 };
 
 #endif

@@ -24,7 +24,7 @@ mutex logmtx;
 int main(int argc, char* argv[]){
     // display version info if no argument is given
     if(argc == 1) {
-        cerr << "rabbit_qc: an ultra-fast all-in-one FASTQ preprocessor" << endl << "version " << RABBITQC_VER << endl;
+        cerr << "RabbitIO-fastp: an ultra-fast all-in-one FASTQ preprocessor" << endl << "version " << RABBITQC_VER << endl;
         //cerr << "fastp --help to see the help"<<endl;
         //return 0;
     }
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]){
         return 0;
     }
     if (argc == 2 && (strcmp(argv[1], "-v")==0 || strcmp(argv[1], "--version")==0)){
-        cerr << "rabbit_qc " << RABBITQC_VER << endl;
+        cerr << "RabbitIO-fastp " << RABBITQC_VER << endl;
         return 0;
     }
 	//detect cpu cores using openmp
@@ -123,10 +123,10 @@ int main(int argc, char* argv[]){
     cmd.add<int>("overrepresentation_sampling", 'P', "one in (--overrepresentation_sampling) reads will be computed for overrepresentation analysis (1~10000), smaller is slower, default is 20.", false, 20);
     
     // reporting
-    cmd.add<string>("json", 'j', "the json format report file name", false, "RabbitQC.json");
-    cmd.add<string>("html", 'h', "the html format report file name", false, "RabbitQC.html");
+    cmd.add<string>("json", 'j', "the json format report file name", false, "RabbitIO-fastp.json");
+    cmd.add<string>("html", 'h', "the html format report file name", false, "RabbitIO-fastp.html");
     //cmd.add<string>("report_title", 'R', "should be quoted with \' or \", default is \"fastp report\"", false, "fastp report");
-    cmd.add<string>("report_title", 'R', "should be quoted with \' or \", default is \"rabbitQC report\"", false, "RabbitQC report");
+    cmd.add<string>("report_title", 'R', "should be quoted with \' or \", default is \"RabbitIO-fastp report\"", false, "RabbitIO-fastp report");
 
     // threading
     cmd.add<int>("thread", 'w', "worker thread number, default is [max CPU cores - 2]", false, nprocs);
@@ -137,8 +137,8 @@ int main(int argc, char* argv[]){
     cmd.add<int>("split_prefix_digits", 'd', "the digits for the sequential number padding (1~10), default is 4, so the filename will be padded as 0001.xxx, 0 to disable padding", false, 4);
 
 	//-----------for 3gs-------------//
-	cmd.add("TGS", 'D', "whether process third generation sequenceing data");
-	cmd.add<int>("minlen", 'm', "Minimum length of reads to be included in the plots", false, 200);	
+//	cmd.add("TGS", 'D', "whether process third generation sequenceing data");
+//	cmd.add<int>("minlen", 'm', "Minimum length of reads to be included in the plots", false, 200);	
 	
     cmd.parse_check(argc, argv);
     if(argc == 1) {
@@ -150,8 +150,8 @@ int main(int argc, char* argv[]){
 
 	//-------for 3gs-------//
 	//opt.isTGS = cmd.get<int>("TGS");
-	opt.istgs = cmd.exist("TGS");
-	opt.minLen = cmd.get<int>("minlen");
+//	opt.istgs = cmd.exist("TGS");
+//	opt.minLen = cmd.get<int>("minlen");
     // I/O
     opt.in1 = cmd.get<string>("in1");
     opt.in2 = cmd.get<string>("in2");
@@ -408,7 +408,7 @@ int main(int argc, char* argv[]){
     cerr << endl << "JSON report: " << opt.jsonFile << endl;
     cerr << "HTML report: " << opt.htmlFile << endl;
     cerr << endl << command << endl;
-    cerr << "rabbit_qc v" << RABBITQC_VER << ", time used: " << (t2)-t1 << " seconds" << endl;
+    cerr << "RabbitIO-fastp v" << RABBITQC_VER << ", time used: " << (t2)-t1 << " seconds" << endl;
 
     return 0;
 }

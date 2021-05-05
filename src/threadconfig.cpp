@@ -37,8 +37,6 @@ ThreadConfig::ThreadConfig(Options* opt, int threadId, bool paired){
     mCurrentSplitReads = 0;
     mPreStats1 = new Stats(mOptions, false);
     mPostStats1 = new Stats(mOptions, false);
-	//---tgs---//
-	mTGSStats = new TGSStats(mOptions->minLen);
     if(paired){
         mPreStats2 = new Stats(mOptions, true);
         mPostStats2 = new Stats(mOptions, true);

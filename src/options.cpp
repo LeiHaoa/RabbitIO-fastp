@@ -10,7 +10,7 @@ Options::Options(){
     out1 = "";
     out2 = "";
     //reportTitle = "fastp report";
-    reportTitle = "RabbitQC report";
+    reportTitle = "RabbitIO-fastp report";
     thread = 1;
     compression = 2;
     phred64 = false;
@@ -129,8 +129,8 @@ bool Options::validate() {
     if(thread < 1) {
         thread = 1;
     } else if(thread > 64) {
-        cerr << "WARNING: RabbitQC uses up to 16 threads although you specified " << thread << endl;
-        thread = 64;
+        //cerr << "WARNING: RabbitQC uses up to 64 threads although you specified " << thread << endl;
+        //thread = 64;
     }
 
     if(trim.front1 < 0 || trim.front1 > 30)
@@ -338,9 +338,4 @@ string Options::getAdapter2(){
         return "unspecified";
     else
         return adapter.sequenceR2;
-}
-
-//--------------------for 3gs------------------//
-bool Options::isTGS(){
-	return istgs;
 }
