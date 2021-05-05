@@ -1,6 +1,6 @@
 
 # RabbitIO-fastp
-RabbitIO-fastp is an enhanced version of [Ktrim](https://github.com/hellosunking/Ktrim) based on [RabbitIO](https://github.com/RabbitBio/RabbitIO).
+RabbitIO-fastp is an enhanced version of [fastp](https://github.com/OpenGene/fastp) based on [RabbitIO](https://github.com/RabbitBio/RabbitIO).
 
 # Build
 
